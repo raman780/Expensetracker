@@ -14,7 +14,10 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.raman.expensetracker.databinding.ActivityAddTransactionBinding;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 import java.util.UUID;
 
@@ -79,6 +82,8 @@ public class AddTransactionActivity extends AppCompatActivity {
                 if (type.length() <= 0){
                     Toast.makeText(AddTransactionActivity.this, "Select transactions type", Toast.LENGTH_SHORT).show();
                 }
+                SimpleDateFormat sdf = new SimpleDateFormat("dd MM yyyy_HH:mm", Locale.getDefault());
+                String currentDateAndTime = sdf.format(new Date());
 
                 String id = UUID.randomUUID().toString();
                 Map<String,Object> transactions = new HashMap<>();
@@ -86,6 +91,7 @@ public class AddTransactionActivity extends AppCompatActivity {
                 transactions.put("amount", amount);
                 transactions.put("note", note);
                 transactions.put("type", type);
+                transactions.put("date", currentDateAndTime);
 
                 fStore.collection("Expenses").document(firebaseAuth.getUid()).collection("Notes").document(id)
                         .set(transactions)

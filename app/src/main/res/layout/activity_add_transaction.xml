@@ -31,6 +31,7 @@
         android:inputType="number"
         android:textColor="@color/black"
         android:hint="@string/Amount"
+        android:textColorHint="@color/black"
         android:layout_marginTop="30dp"
         android:padding="15dp"
         android:background="@drawable/edit_text_bg"
@@ -38,10 +39,12 @@
         android:layout_height="wrap_content"/>
 
     <EditText
+        android:textColor="@color/black"
         android:id="@+id/user_note_add"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
         android:hint="@string/note"
+        android:textColorHint="@color/black"
         android:inputType="textCapSentences"
         android:textAlignment="textStart"
         android:gravity="start"
@@ -59,6 +62,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <CheckBox
+            android:textColor="@color/black"
             android:id="@+id/expense_check_box"
             android:gravity="center"
             android:layout_gravity="center"
@@ -67,6 +71,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"/>
         <CheckBox
+            android:textColor="@color/black"
             android:id="@+id/income_check_box"
             android:gravity="center"
             android:layout_weight="1"

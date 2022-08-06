@@ -27,6 +27,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         firebaseAuth = FirebaseAuth.getInstance();
+        /*For checking that user logined or not*/
+        firebaseAuth.addAuthStateListener(new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                if (firebaseAuth.getCurrentUser( ) != null){
+                    try {
+                        startActivity(new Intent(MainActivity.this, DashboardActivity.class));
+                        finish();
+                    }catch(Exception e){
+
+                    }
+                }
+            }
+        });
 
         binding.gotoSignupScreen.setOnClickListener(new View.OnClickListener() {
             @Override
