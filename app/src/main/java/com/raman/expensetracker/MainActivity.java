@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     /*For fetching firebaseAuth Methods*/
     FirebaseAuth firebaseAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,11 +32,11 @@ public class MainActivity extends AppCompatActivity {
         firebaseAuth.addAuthStateListener(new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                if (firebaseAuth.getCurrentUser( ) != null){
+                if (firebaseAuth.getCurrentUser() != null) {
                     try {
                         startActivity(new Intent(MainActivity.this, DashboardActivity.class));
                         finish();
-                    }catch(Exception e){
+                    } catch (Exception e) {
 
                     }
                 }
@@ -48,9 +49,9 @@ public class MainActivity extends AppCompatActivity {
                 /*Intent for going to SignUp Activty From MainActivity*/
                 Intent intent = new Intent(MainActivity.this, SignUpActivity.class);
                 /*for Low speed device in case of app crash while an activity launches*/
-                try{
+                try {
                     startActivity(intent);
-                }catch (Exception e){
+                } catch (Exception e) {
 
                 }
             }
@@ -62,16 +63,16 @@ public class MainActivity extends AppCompatActivity {
                 String email = binding.emailLogin.getText().toString().trim();
                 String password = binding.passwordLogin.getText().toString().trim();
                 /*for validation*/
-                if (email.length() <= 0 || password.length() <= 0){
+                if (email.length() <= 0 || password.length() <= 0) {
                     return;
                 }
-                firebaseAuth.signInWithEmailAndPassword(email,password)
+                firebaseAuth.signInWithEmailAndPassword(email, password)
                         .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                             @Override
                             public void onSuccess(AuthResult authResult) {
                                 try {
-                                    startActivity(new Intent(MainActivity.this,DashboardActivity.class));
-                                }catch (Exception e){
+                                    startActivity(new Intent(MainActivity.this, DashboardActivity.class));
+                                } catch (Exception e) {
 
                                 }
 
@@ -80,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
                         .addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(MainActivity.this,e.getMessage(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                             }
                         });
             }

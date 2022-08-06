@@ -32,6 +32,7 @@ public class AddTransactionActivity extends AppCompatActivity {
     /*Whenever a person will click on check box it will create a value*/
     /**/
     String type = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,18 +76,18 @@ public class AddTransactionActivity extends AppCompatActivity {
                 String note = binding.userNoteAdd.getText().toString().trim();
 
                 /*validation*/
-                if (amount.length() <= 0){
+                if (amount.length() <= 0) {
                     return;
                 }
 
-                if (type.length() <= 0){
+                if (type.length() <= 0) {
                     Toast.makeText(AddTransactionActivity.this, "Select transactions type", Toast.LENGTH_SHORT).show();
                 }
                 SimpleDateFormat sdf = new SimpleDateFormat("dd MM yyyy_HH:mm", Locale.getDefault());
                 String currentDateAndTime = sdf.format(new Date());
 
                 String id = UUID.randomUUID().toString();
-                Map<String,Object> transactions = new HashMap<>();
+                Map<String, Object> transactions = new HashMap<>();
                 transactions.put("id", id);
                 transactions.put("amount", amount);
                 transactions.put("note", note);
@@ -106,7 +107,7 @@ public class AddTransactionActivity extends AppCompatActivity {
                         .addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(AddTransactionActivity.this,e.getMessage(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(AddTransactionActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                             }
                         });
             }

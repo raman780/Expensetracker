@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.ConcurrentModificationException;
 
-public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.MyViewHolder>{
+public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.MyViewHolder> {
     Context context;
     ArrayList<TransactionModel> transactionModelArrayList;
 
@@ -24,7 +24,7 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.one_recycler_item,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.one_recycler_item, parent, false);
         return new MyViewHolder(view);
     }
 
@@ -33,9 +33,9 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
         TransactionModel model = transactionModelArrayList.get(position);
         /*for fetching data in views*/
         String priority = model.getType();
-        if(priority.equals("Expense")){
+        if (priority.equals("Expense")) {
             holder.priority.setBackgroundResource(R.drawable.red_shape);
-        }else {
+        } else {
             holder.priority.setBackgroundResource(R.drawable.green_shape);
 
         }
@@ -50,10 +50,11 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
     }
 
     /*for holding Single views*/
-    public class MyViewHolder extends RecyclerView.ViewHolder{
-        TextView note,amount,date;
+    public class MyViewHolder extends RecyclerView.ViewHolder {
+        TextView note, amount, date;
         View priority;
-        public MyViewHolder(@NonNull View itemView){
+
+        public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             note = itemView.findViewById(R.id.note_one);
             amount = itemView.findViewById(R.id.amount_one);

@@ -46,7 +46,7 @@ public class DashboardActivity extends AppCompatActivity {
             public void onClick(View v) {
                 try {
                     startActivity(new Intent(DashboardActivity.this, AddTransactionActivity.class));
-                }catch (Exception e){
+                } catch (Exception e) {
 
                 }
             }
@@ -56,8 +56,8 @@ public class DashboardActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    startActivity(new Intent(DashboardActivity.this,AddTransactionActivity.class));
-                }catch (Exception e){
+                    startActivity(new Intent(DashboardActivity.this, AddTransactionActivity.class));
+                } catch (Exception e) {
 
                 }
             }
@@ -68,7 +68,7 @@ public class DashboardActivity extends AppCompatActivity {
                 try {
                     startActivity(new Intent(DashboardActivity.this, DashboardActivity.class));
                     finish();
-                }catch (Exception e){
+                } catch (Exception e) {
 
                 }
             }
@@ -76,28 +76,28 @@ public class DashboardActivity extends AppCompatActivity {
         loadData();
     }
 
-    private void loadData(){
+    private void loadData() {
         firebaseFirestore.collection("Expenses").document(firebaseAuth.getUid()).collection("Notes")
                 .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        for (DocumentSnapshot ds:task.getResult()){
+                        for (DocumentSnapshot ds : task.getResult()) {
                             TransactionModel model = new TransactionModel(ds.getString("id"),
                                     ds.getString("note"), ds.getString("amount"),
                                     ds.getString("type"), ds.getString("date"));
 
 
                             int amount = Integer.parseInt(ds.getString("amount"));
-                            if (ds.getString("type").equals("Expense")){
+                            if (ds.getString("type").equals("Expense")) {
                                 sumExpense = sumExpense + amount;
-                            }else {
+                            } else {
                                 sumIncome = sumIncome + amount;
                             }
                             transactionModelArrayList.add(model);
                         }
                         binding.totalIncome.setText(String.valueOf(sumIncome));
                         binding.totalExpense.setText(String.valueOf(sumExpense));
-                        binding.totalBalance.setText(String.valueOf(sumIncome-sumExpense));
+                        binding.totalBalance.setText(String.valueOf(sumIncome - sumExpense));
 
                         transactionAdapter = new TransactionAdapter(DashboardActivity.this, transactionModelArrayList);
                         binding.historyRecyclerView.setAdapter(transactionAdapter);

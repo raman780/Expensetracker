@@ -11,8 +11,8 @@
     <RelativeLayout
         android:id="@+id/custom_toolbar_add_transaction"
         android:layout_width="match_parent"
-        android:background="@color/red"
-        android:layout_height="?actionBarSize">
+        android:layout_height="?actionBarSize"
+        android:background="@color/red">
 
         <TextView
             android:layout_width="match_parent"
@@ -24,69 +24,73 @@
             android:textSize="18sp"
             android:textStyle="bold" />
     </RelativeLayout>
-    <EditText
-        android:id="@+id/user_amount_add"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
-        android:inputType="number"
-        android:textColor="@color/black"
-        android:hint="@string/Amount"
-        android:textColorHint="@color/black"
-        android:layout_marginTop="30dp"
-        android:padding="15dp"
-        android:background="@drawable/edit_text_bg"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
 
     <EditText
-        android:textColor="@color/black"
-        android:id="@+id/user_note_add"
-        android:layout_marginRight="10dp"
+        android:id="@+id/user_amount_add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
-        android:hint="@string/note"
-        android:textColorHint="@color/black"
-        android:inputType="textCapSentences"
-        android:textAlignment="textStart"
-        android:gravity="start"
-        android:layout_marginTop="10dp"
-        android:padding="15dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="10dp"
         android:background="@drawable/edit_text_bg"
+        android:hint="@string/Amount"
+        android:inputType="number"
+        android:padding="15dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black" />
+
+    <EditText
+        android:id="@+id/user_note_add"
         android:layout_width="match_parent"
-        android:layout_height="100dp"/>
-    <LinearLayout
-        android:layout_marginRight="10dp"
+        android:layout_height="100dp"
         android:layout_marginLeft="10dp"
-        android:gravity="center"
-        android:weightSum="2"
-        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/edit_text_bg"
+        android:gravity="start"
+        android:hint="@string/note"
+        android:inputType="textCapSentences"
+        android:padding="15dp"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black" />
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
         <CheckBox
-            android:textColor="@color/black"
             android:id="@+id/expense_check_box"
-            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="1"
-            android:text="@string/expense"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"/>
-        <CheckBox
-            android:textColor="@color/black"
-            android:id="@+id/income_check_box"
             android:gravity="center"
-            android:layout_weight="1"
-            android:text="@string/income"
+            android:text="@string/expense"
+            android:textColor="@color/black" />
+
+        <CheckBox
+            android:id="@+id/income_check_box"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/income"
+            android:textColor="@color/black" />
     </LinearLayout>
+
     <Button
         android:id="@+id/btn_transction_add"
-        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="12dp"
-        android:text="@string/add"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    </Button>
+        android:layout_marginRight="10dp"
+        android:text="@string/add"></Button>
 
 </LinearLayout>

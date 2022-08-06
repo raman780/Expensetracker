@@ -1,12 +1,11 @@
 package com.raman.expensetracker;
 
 public class TransactionModel {
-    private String id,note,amount,type,date;
+    private String id, note, amount, type, date;
 
-    public TransactionModel(){
+    public TransactionModel() {
 
     }
-
 
 
     public TransactionModel(String id, String note, String amount, String type, String date) {

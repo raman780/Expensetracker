@@ -32,10 +32,10 @@ public class SignUpActivity extends AppCompatActivity {
         binding.gotoLoginScreen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(SignUpActivity.this, MainActivity.class );
+                Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
                 try {
                     startActivity(intent);
-                }catch (Exception e){
+                } catch (Exception e) {
 
                 }
             }
@@ -46,16 +46,16 @@ public class SignUpActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String email = binding.emailForSignUp.getText().toString();
                 String password = binding.passwordForSignup.getText().toString();
-                if (email.trim().length() <= 0 || password.trim().length() <= 0){
+                if (email.trim().length() <= 0 || password.trim().length() <= 0) {
                     return;
                 }
-                firebaseAuth.createUserWithEmailAndPassword(email,password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
-                    @Override
-                    public void onSuccess(AuthResult authResult) {
-                        Toast.makeText(SignUpActivity.this, "User Created Successfully", Toast.LENGTH_SHORT).show();
+                firebaseAuth.createUserWithEmailAndPassword(email, password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                            @Override
+                            public void onSuccess(AuthResult authResult) {
+                                Toast.makeText(SignUpActivity.this, "User Created Successfully", Toast.LENGTH_SHORT).show();
 
-                    }
-                })
+                            }
+                        })
                         .addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
