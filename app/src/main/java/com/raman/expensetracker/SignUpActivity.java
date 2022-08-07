@@ -40,7 +40,7 @@ public class SignUpActivity extends AppCompatActivity {
                 }
             }
         });
-
+        /*after filling Email Id and password , on clicking signup button it will add user credentials to database*/
         binding.btnSignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

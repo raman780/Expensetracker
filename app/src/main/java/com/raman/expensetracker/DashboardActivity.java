@@ -62,6 +62,7 @@ public class DashboardActivity extends AppCompatActivity {
                 }
             }
         });
+        /*Whenever a user add new transaction details it will refresh that added details*/
         binding.refreshBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,7 +76,7 @@ public class DashboardActivity extends AppCompatActivity {
         });
         loadData();
     }
-
+    /*for fetching added transaction details and showing calculated value on dashboard Activity*/
     private void loadData() {
         firebaseFirestore.collection("Expenses").document(firebaseAuth.getUid()).collection("Notes")
                 .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {

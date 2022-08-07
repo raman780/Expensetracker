@@ -93,7 +93,7 @@ public class AddTransactionActivity extends AppCompatActivity {
                 transactions.put("note", note);
                 transactions.put("type", type);
                 transactions.put("date", currentDateAndTime);
-
+                /*for storing data on firebase*/
                 fStore.collection("Expenses").document(firebaseAuth.getUid()).collection("Notes").document(id)
                         .set(transactions)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {

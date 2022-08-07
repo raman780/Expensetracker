@@ -7,7 +7,7 @@ public class TransactionModel {
 
     }
 
-
+    /*for setting and getting transaction details on firebase DB*/
     public TransactionModel(String id, String note, String amount, String type, String date) {
         this.id = id;
         this.note = note;

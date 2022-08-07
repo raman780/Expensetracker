@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        /*on click on this btn it will navigate user to signup Activity from Main Activity*/
         binding.gotoSignupScreen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
+        /*on click on login button after filling User id and password it will navigate user to dashboard activity*/
         binding.btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
                 if (email.length() <= 0 || password.length() <= 0) {
                     return;
                 }
+                /*if user will try to login with right credentials it will navigate to dashboard activity*/
                 firebaseAuth.signInWithEmailAndPassword(email, password)
                         .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                             @Override
