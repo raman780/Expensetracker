@@ -24,9 +24,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         /*infalte is used for binding main and signup Activity*/
+        /*create instance of the ActivityMainBinding*/
         binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
 
+        /*binding.root returns the root layout , which is activity_main.xml file itself*/
+        setContentView(binding.getRoot());
+        /*we Get the default FirebaseDatabase instance using get Instance().*/
         firebaseAuth = FirebaseAuth.getInstance();
         /*For checking that user logined or not*/
         firebaseAuth.addAuthStateListener(new FirebaseAuth.AuthStateListener() {
@@ -42,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
+        /*Using the binding variable we can access the layout properties*/
         /*on click on this btn it will navigate user to signup Activity from Main Activity*/
         binding.gotoSignupScreen.setOnClickListener(new View.OnClickListener() {
             @Override
